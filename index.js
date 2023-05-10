@@ -3048,52 +3048,482 @@
 //======================================================================hash table===========================
 
 
-class hashTable{
-        constructor(size) {
+// class hashTable{
+//         constructor(size) {
 
-                this.table=new Array(size)
-                this.size=size
+//                 this.table=new Array(size)
+//                 this.size=size
                 
-        }
+//         }
 
-        hash(key){
-                let total=0
+//         hash(key){
+//                 let total=0
 
-                for(let i=0;i<key.length;i++){
+//                 for(let i=0;i<key.length;i++){
                         
-                        total+=key.charCodeAt(i)
-                }
-                return total%this.size
-        }
+//                         total+=key.charCodeAt(i)
+//                 }
+//                 return total%this.size
+//         }
 
-        set(key,value){
+//         set(key,value){
                 
-                const index=this.hash(key)
-                this.table[index]=value
-        }
+//                 const index=this.hash(key)
+//                 this.table[index]=value
+//         }
 
-        get(key){
-                const index=this.hash(key)
-                return this.table[index]
-        }
+//         get(key){
+//                 const index=this.hash(key)
+//                 return this.table[index]
+//         }
 
-        remove(key){
-                const index=this.hash(key)
-                this.table[index]=undefined
-        }
+//         remove(key){
+//                 const index=this.hash(key)
+//                 this.table[index]=undefined
+//         }
 
-        display(){
-                for(let i=0;i<this.table.length;i++){
-                        if(this.table[i])
-                        console.log(i,this.table[i]);
+//         display(){
+//                 for(let i=0;i<this.table.length;i++){
+//                         if(this.table[i])
+//                         console.log(i,this.table[i]);
+//                 }
+//         }
+// }
+
+// const table=new hashTable(20)
+
+// table.set("names","ridin")
+// table.set("place","kannur")
+// table.set("age",29)
+
+// table.display()
+
+
+//=============================================hash table collision handled=====================
+
+
+// class hashTable{
+//         constructor(size) {
+//                 this.table=new Array(size)
+//                 this.size=size
+//         }
+
+//         hash(key){
+//                 let total=0
+//                 for(let i=0;i<key.length;i++){
+//                         total+=key.charCodeAt(i)
+//                 }
+//                 return total%this.size
+//         }
+
+//         set(key,value){
+
+//                 const index=this.hash(key)
+
+//                 const bucket=this.table[index]
+
+//                 if(!bucket){
+//                         this.table[index]=[[key,value]]
+//                 }
+//                 else{
+//                         const sameKey=bucket.find((item)=>item[0]===key)
+
+//                         if(sameKey){
+//                                 sameKey[1]=value
+//                         }
+//                         else{
+//                                 bucket.push([key,value])
+//                         }
+
+//                 }
+//         }
+
+//         get(key){
+//                 const index=this.hash(key)
+
+//                 const bucket=this.table[index]
+//                 if(bucket){
+//                         const sameKey=bucket.find((item)=>item[0]===key)
+
+//                         if(sameKey){
+//                                 return sameKey[1]
+//                         }
+//                 }
+//                 return undefined
+//         }
+
+//         remove(key){
+//                 const index=this.hash(key)
+
+//                 const bucket=this.table[index]
+
+//                 if(bucket){
+//                         const sameKey=bucket.find((item)=>item[0]===key)
+//                         if(sameKey){
+//                                 bucket.splice(bucket.indexOf(sameKey),1)
+//                         }
+//                 }
+//         }
+
+//         display(){
+                
+//                 for(let i=0;i<this.table.length;i++){
+//                         if(this.table[i]){
+//                                 console.log(i,this.table[i]);
+                               
+//                         }
+//                 }
+//         }
+// }
+
+// const table=new hashTable(50)
+
+// table.set("name","ridin")
+// table.set("mane","mizhi")
+// table.set("district","kannur")
+// table.set("age",20)
+
+// // table.display()
+// console.log("------------------------");
+// // console.log(table.get("age"));
+// table.remove("age")
+// table.display()
+// // console.log(table.get("age"));
+
+//======================================================hash practice=========================
+
+
+// class hashTable{
+//         constructor(size) {
+//                 this.table=new Array(size)
+//                 this.size=size
+//         }
+
+//         hash(key){
+//                 let total=0
+
+//                 for(i=0;i<key.length;i++){
+//                         total+=key.charCodeAt(i)
+//                 }
+//                 total%this.size
+//         }
+
+//         set(key,value){
+        
+//                 const index=this.hash(key)
+
+//                 const bucket=this.table[index]
+
+//                 if(!bucket){
+//                         this.table[index]=[[key,value]]
+//                 }
+//                 else{
+//                         const sameKey=bucket.find((item)=>item[0]===key)
+//                         if(sameKey){
+//                                 sameKey[1]=value
+//                         }
+//                         else{
+//                                 bucket.push([key,value])
+//                         }
+//                 }
+//         }
+
+
+//         get(key){
+//                 const index=this.hash(key)
+//                 const bucket=this.table[index]
+
+//                 if(bucket){
+//                         const sameKey=bucket.find((item)=>item[0]===key)
+
+//                         if(sameKey){
+//                                 return sameKey[1]
+//                         }
+//                 }
+//                 return undefined
+//         }
+
+//         remove(key){
+//                 const index=this.hash(key)
+
+//                 const bucket =this.table[index]
+
+//                 if(bucket){
+//                         const sameKey=bucket.find((item)=>item[0]===key)
+//                         if(sameKey){
+//                                 bucket.splice(bucket.indexOf(sameKey),1)
+//                         }
+//                 }
+//         }
+
+//         display(){
+//                 for(i=0;i<this.table.length;i++){
+//                         if(this.table[i]){
+//                                 console.log(i,this.table[i]);
+//                         }
+//                 }
+//         }
+// }
+
+//=======================================stack middle element======================
+
+
+// class Node{
+//         constructor(data) {
+//                 this.data=data
+//                 this.next=null
+//         }
+// }
+
+// class Stack{
+//         constructor() {
+//                 this.top=null
+//                 this.size=0
+//         }
+
+//         push(data){
+//                 const newNode=new Node(data)
+
+//                 if(!this.top){
+//                         this.top=newNode
+//                 }
+//                 else{
+//                         newNode.next=this.top
+//                         this.top=newNode
+//                 }
+//                 this.size++
+                
+//         }
+//         deletemiddle(){
+//                 let currentNode=this.top
+//                 let cout=0
+//                 let mid=Math.floor(this.size/2)
+//                 console.log(mid,"mid");
+//                 while(currentNode){
+//                         cout++
+//                         if(mid==cout){
+//                                 currentNode.next=currentNode.next.next
+//                         }
+//                         currentNode=currentNode.next
+
+//                 }
+//         }
+
+//         display(){
+//                 let currentNode=this.top
+//                 while(currentNode){
+//                         console.log(currentNode.data);
+
+//                         currentNode=currentNode.next
+//                 }
+//         }
+// }
+
+
+// const myStack=new Stack()
+
+// myStack.push(10)
+// myStack.push(20)
+// myStack.push(30)
+// myStack.push(40)
+// myStack.push(50)
+// myStack.push(60)
+
+
+// myStack.display()
+// console.log("-------------------");
+// myStack.deletemiddle()
+// myStack.display()
+
+
+//===============================================stack using array====================\\
+
+// class Stack{
+//         constructor() {
+
+//                 this.array=[]
+//                 this.array2=[]
+//         }
+
+//         push(data){
+//                 this.array.push(data)
+//         }
+//         pop(){
+//                 this.array.pop()
+//         }
+//         undo(){
+//                 this.array2.push(this.array.pop())
+//         }
+//         redo(){
+//                 this.array.push(this.array2.pop())
+//         }
+//         display(){
+//                 for(let i=0;i<this.array.length;i++){
+//                         console.log(this.array[i]);
+//                 }
+//         }
+// }
+
+// const myStack=new Stack()
+
+// myStack.push(20)
+// myStack.push(30)
+// myStack.push(40)
+// myStack.push(50)
+
+// myStack.display()
+
+// console.log("===================");
+
+// myStack.undo()
+// myStack.display()
+// console.log('-----------------------');
+
+// myStack.redo()
+// myStack.display()
+
+//=================================================bubble sort =============================
+
+// function bubble(a){
+//         let n=a.length
+//         for(i=0;i<n;i++){
+
+//                 for(j=0;j<n-1-i;j++){
+                        
+//                         if(a[j]>a[j+1]){
+//                                 temp=a[j]
+//                                 a[j]=a[j+1]
+//                                 a[j+1]=temp
+//                         }
+//                 }
+//         }
+// }
+
+// const arr=[10,5,25,12,29,2,18]
+
+// bubble(arr)
+// console.log(arr);
+
+//================================================insertin =========================
+
+// function insertion(a){
+//         let n=a.length
+
+//         for(i=1;i<n;i++){
+                
+//                 let value=a[i]
+
+//                 for(j=i-1;j>=0&&a[j]>value;j--){
+                        
+//                 a[j+1]=a[j]                
+                        
+//                 }
+//                 a[j+1]=value
+//         }
+// }
+
+// const arr=[10,5,25,12,29,2,18]
+// insertion(arr)
+
+// console.log(arr);
+
+//==============================================selection========================
+
+// function selection(a){
+
+//         let n=a.length
+
+//         for(i=0;i<n-1;i++){
+                
+//                 let min=i
+
+//                 for(j=i+1;j<n;j++){
+
+//                         if(a[j]<a[min]){
+//                                 min=j
+//                         }
+//                 }
+//                 if(i!=min){
+//                         temp=a[i]
+//                         a[i]=a[min]
+//                         a[min]=temp
+//                 }
+//         }
+// }
+
+// const arr=[10,5,25,12,29,2,18,1,99]
+
+// selection(arr)
+
+// console.log(arr);
+
+//====================================== sample workout====================
+
+// function bubbleSort(a){
+//         let n=a.length
+
+//         for(let i=0;i<n;i++){
+
+//                 for(j=0;j<n-1-i;j++){
+//                         if(a[j]>a[j+1]){
+//                                 temp=a[j]
+//                                 a[j]=a[j+1]
+//                                 a[j+1]=temp
+//                         }
+//                 }
+//         }
+// }
+
+// const arr=[20,10,15,18,2,28,12,11]
+// bubbleSort(arr)
+
+// console.log(arr);
+
+//=======================================
+
+// function insertionSort(a){
+
+//         let n=a.length
+
+//         for(i=1;i<n;i++){
+//                 let value=a[i]
+
+//                 for(j=i-1;j>=0&&a[j]>value;j--){
+
+//                         a[j+1]=a[j]
+//                 }
+//                 a[j+1]=value
+//         }
+// }
+
+// const arr=[20,10,15,18,2,28,12,11]
+// insertionSort(arr)
+// console.log(arr);
+
+//=================================selection
+
+function selection(a){
+        let n=a.length
+
+        for(i=0;i<n;i++){
+                
+                let min=i
+                for(j=i+1;j<n;j++){
+
+                        if(a[j]<a[min]){
+                            
+                                min=j
+                        }
+                        
+                }
+                if(i!=min){
+                        temp=a[i]
+                        a[i]=a[min]
+                        a[min]=temp
                 }
         }
 }
 
-const table=new hashTable(20)
-
-table.set("names","ridin")
-table.set("place","kannur")
-table.set("age",29)
-
-table.display()
+const arr=[20,10,15,18,2,28,12,11]
+selection(arr)
+console.log(arr);
