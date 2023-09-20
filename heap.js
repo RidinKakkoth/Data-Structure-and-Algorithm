@@ -58,8 +58,7 @@ class MinHeap {
 			return null;
 		}
 		const item = this.heap[0];
-		this.heap[0] = this.heap[this.heap.length - 1];
-		this.heap.pop();
+		this.heap[0] = this.heap.pop();
 		this.heapifyDown();
 		return item;
 	}
