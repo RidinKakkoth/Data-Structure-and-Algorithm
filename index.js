@@ -1,3 +1,80 @@
+function selectionSort(arr) {
+    let n = arr.length;
+
+    // Traverse through all array elements
+    for (let i = 0; i < n - 1; i++) {
+        // Find the minimum element in the unsorted portion
+        let minIndex = i;
+        
+        for (let j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;  // Update minIndex if a smaller element is found
+            }
+        }
+
+        // Swap the found minimum element with the first element of the unsorted portion
+        if (minIndex !== i) {
+            [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+        }
+    }
+
+    return arr; // Return the sorted array
+}
+
+const array = [10, 50, 20, 40, 80, 30, 90, 70];
+console.log(selectionSort(array)); // Output: [10, 20, 30, 40, 50, 70, 80, 90]
+//==========================================================================================
+
+function insertion(a) {
+  let n = a.length;
+  
+  for (let i = 1; i < n; i++) {
+    let key = a[i];
+    let j = i - 1;
+
+    // Move elements of a[0..i-1] that are greater than key, to one position ahead
+    while (j >= 0 && a[j] > key) {
+      a[j + 1] = a[j];
+      j--;
+    }
+    a[j + 1] = key; // Place the key at the correct position
+  }
+  return a; // Return the sorted array
+}
+
+const array = [10, 50, 20, 40, 80, 30, 90, 70];
+console.log(insertion(array)); // Output: [10, 20, 30, 40, 50, 70, 80, 90]
+
+
+
+//==========================================================================================
+function bubbleSort(a) {
+  let n = a.length;
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n - 1 - i; j++) {
+      if (a[j] > a[j + 1]) {
+        [a[j], a[j + 1]] = [a[j + 1], a[j]]; // Swap elements
+      }
+    }
+  }
+  return a; // Return the sorted array
+}
+
+const array = [10, 50, 20, 40, 80, 30, 90, 70];
+console.log(bubbleSort(array)); // Output: [10, 20, 30, 40, 50, 70, 80, 90]
+
+
+//==========================================================================================
+
+
+
+
+
+
+
+
+
 //sum of two is equals target
 
 // function sumOfTwo(a,target){
