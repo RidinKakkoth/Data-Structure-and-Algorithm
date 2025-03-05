@@ -75,69 +75,68 @@ console.log(bubbleSort(array)); // Output: [10, 20, 30, 40, 50, 70, 80, 90]
 
 
 
-//sum of two is equals target
+sum of two is equals target
 
-// function sumOfTwo(a,target){
-//     n=a.length
-//   for(i=0;i<n-1;i++)
-//   {
-//     for(j=i+1;j<n;j++)
-//     {
-//         if(a[i]+a[j]==target)
-//         {
-//             // console.log(a[i],a[j]);
-//             return ans=[a[i],a[j]]
-//         }
-//     }
-//   }  
-// }
-// let a=[6,5,4,3,9,8,0]
-// let x=sumOfTwo(a,10)
-// for(i=0;i<x.length;i++){
-//     console.log(x[i]);
-// }
-//--------------------------------------------using set add 2 to get target--------------------------
-// function sumOfTwoNew(array,tgt){
-//     const nums=new Set()
-//     for(i=0;i<array.length;i++){
-//         let number=array[i]
-//         let match=tgt-number
-//         if(nums.has(match)){
-//             let matched
-//             return  matched=[number,match]
-//         }
-//         else{
-//             nums.add(number)
-//         }
-//     }
-//     return
-// }
-// let a=[6,5,4,3,9,8,0]
-// x=sumOfTwoNew(a,10)
-// for(i=0;i<x.length;i++){
-//     console.log(x[i]);
-// }
+function sumOfTwo(a,target){
+    n=a.length
+  for(i=0;i<n-1;i++)
+  {
+    for(j=i+1;j<n;j++)
+    {
+        if(a[i]+a[j]==target)
+        {
+            // console.log(a[i],a[j]);
+            return ans=[a[i],a[j]]
+        }
+    }
+  }  
+}
+let a=[6,5,4,3,9,8,0]
+let x=sumOfTwo(a,10)
+for(i=0;i<x.length;i++){
+    console.log(x[i]);
+}
+--------------------------------------------using set add 2 to get target--------------------------
+function sumOfTwoNew(array,tgt){
+    const nums=new Set()
+    for(i=0;i<array.length;i++){
+        let number=array[i]
+        let match=tgt-number
+        if(nums.has(match)){
+            let matched
+            return  matched=[number,match]
+        }
+        else{
+            nums.add(number)
+        }
+    }
+    return
+}
+let a=[6,5,4,3,9,8,0]
+x=sumOfTwoNew(a,10)
+for(i=0;i<x.length;i++){
+    console.log(x[i]);
+}
 
 //--------------------------------------------move same no to end--------------------------
 
-// function move(a,num){
-// for(j=a.length-1;j>=0;j--){
+function move(arr, num) {
+    let index = 0; // Pointer for non-num elements
 
-//     if(a[j]!=num){
-//         for(i=0;i<j;i++){
-//             if(a[i]==num){
-//                 a[i]=a[j]
-//                 a[j]=num
-//             }
-//         }
-//     }
-// }
-// return a
-// }
+    // Move all non-num elements forward
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== num) {
+            [arr[index], arr[i]] = [arr[i], arr[index]]; // Swap
+            index++;
+        }
+    }
+    return arr;
+}
 
-// const a=[6,1,6,8,10,4,15,6,3,9,6]
-// x=move(a,6)
-// console.log(a)
+const a = [6, 1, 6, 8, 10, 4, 15, 6, 3, 9, 6];
+move(a, 6);
+console.log(a); // Output: [1, 8, 10, 4, 15, 3, 9, 6, 6, 6, 6]
+
 
 //--------------------------------------------singly linked list--------------------------
 // class Node{
